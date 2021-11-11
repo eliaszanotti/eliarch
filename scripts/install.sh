@@ -94,7 +94,8 @@ function main {
         5) Montage des partitions
         6) Tri des paquets avec Reflector
         7) Installation de Linux ATTENTION !
-        8) Fin de l'installation, utilisez chroot-install"""
+        8) Fin de l'installation, utilisez chroot-install
+        """
         
         read -p "Entrez une selection : " choice
 
