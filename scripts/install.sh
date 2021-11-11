@@ -104,6 +104,7 @@ function main {
         read -p "Entrez une selection : " choice
 
         case $choice in 
+            q) exit;;
             1) wifi;sleep 3;;
             2) fuseau;sleep 3;;
             3) part_disk;sleep 3;; 
@@ -112,7 +113,6 @@ function main {
             6) tri_reflector;sleep 3;;
             7) install_pacstrap;sleep 3;;
             8) chroot_system;sleep 3;;
-            q) exit;;
             *) echo "Choix non valide veuillez recommencer :";sleep 1;;
         esac 
         
