@@ -112,7 +112,7 @@ function main {
             6) tri_reflector;sleep 3;;
             7) install_pacstrap;sleep 3;;
             8) chroot_system;sleep 3;;
-            q) exit;
+            q) exit;;
             *) echo "Choix non valide veuillez recommencer :";sleep 1;;
         esac 
         
