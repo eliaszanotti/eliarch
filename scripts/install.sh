@@ -79,9 +79,10 @@ function install_pacstrap {
 }
 
 function chroot_system {
+    #TODO
     titre "Pour continuer utilisez chroot-install"
-    cp -r /root/chroot-install.sh /mnt/bin
-    cp -r /root/config-system.sh /mnt/bin
+    cp -r $PWD/scripts/chroot-install.sh /mnt/bin
+    cp -r $PWD/scripts/config-system.sh /mnt/bin
     arch-chroot /mnt
 }
 
