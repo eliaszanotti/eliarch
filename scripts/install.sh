@@ -12,7 +12,8 @@ function wifi {
     [iwd]# station wlan0 scan
     [iwd]# station wlan0 get-networks
     [iwd]# station wlan0 connect network_name
-    [iwd]# exit"""
+    [iwd]# exit
+    """
     iwctl
     ping google.com
 }
@@ -28,9 +29,10 @@ function part_disk {
     titre "Partition du disque avec cfdisk"
     echo -e """
     3 partitions :
-    \t 512M  \t Linux filesystem
-    \t 4096M \t Linux SWAP
-    \t ALL   \t Linux filesystem""" 
+    512M  \t Linux filesystem
+    4096M \t Linux SWAP
+    ALL   \t Linux filesystem
+    """ 
     continuer
     cfdisk
     titre "Partition du disque avec cfdisk"
@@ -68,7 +70,8 @@ function install_pacstrap {
     titre "Installation de Linux ATTENTION !"
     echo """
     Sur /mnt :
-    base linux linux-firmware nano networkmanager network-manager-applet"""
+    base linux linux-firmware nano networkmanager network-manager-applet
+    """
     continuer
     pacstrap /mnt base linux linux-firmware nano networkmanager network-manager-applet
     genfstab -U /mnt >> /mnt/etc/fstab
