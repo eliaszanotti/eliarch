@@ -7,11 +7,12 @@ loadkeys fr-pc
 
 function wifi {
     titre "Wi-Fi"
-    echo "[iwd]# device list"
-    echo "[iwd]# station wlan0 scan"
-    echo "[iwd]# station wlan0 get-networks"
-    echo "[iwd]# station wlan0 connect network_name"
-    echo "[iwd]# exit"
+    echo """
+    [iwd]# device list
+    [iwd]# station wlan0 scan
+    [iwd]# station wlan0 get-networks
+    [iwd]# station wlan0 connect network_name
+    [iwd]# exit"""
     iwctl
     ping google.com
 }
@@ -25,10 +26,11 @@ function fuseau {
 
 function part_disk {
     titre "Partition du disque avec cfdisk"
-    echo "3 partitions :"
-    echo -e "\t 512M  \t Linux filesystem"
-    echo -e "\t 4096M \t Linux SWAP"
-    echo -e "\t ALL   \t Linux filesystem"
+    echo -e """
+    3 partitions :
+    \t 512M  \t Linux filesystem
+    \t 4096M \t Linux SWAP
+    \t ALL   \t Linux filesystem""" 
     continuer
     cfdisk
     titre "Partition du disque avec cfdisk"
@@ -64,8 +66,9 @@ function tri_reflector {
 
 function install_pacstrap {
     titre "Installation de Linux ATTENTION !"
-    echo "Sur /mnt :"
-    echo "base linux linux-firmware nano networkmanager network-manager-applet"
+    echo """
+    Sur /mnt :
+    base linux linux-firmware nano networkmanager network-manager-applet"""
     continuer
     pacstrap /mnt base linux linux-firmware nano networkmanager network-manager-applet
     genfstab -U /mnt >> /mnt/etc/fstab
@@ -83,14 +86,15 @@ function main {
     break_loop=0
     while [[ $break_loop == 0 ]]
         do titre "Menu principal pour l'installation du systeme"
-        echo "1) Wi-Fi"
-        echo "2) Fuseau horraire"
-        echo "3) Partition du disque avec cfdisk"
-        echo "4) Formatage des partitions"
-        echo "5) Montage des partitions"
-        echo "6) Tri des paquets avec Reflector"
-        echo "7) Installation de Linux ATTENTION !"
-        echo "8) Fin de l'installation, utilisez chroot-install"
+        echo """
+        1) Wi-Fi
+        2) Fuseau horraire
+        3) Partition du disque avec cfdisk
+        4) Formatage des partitions
+        5) Montage des partitions
+        6) Tri des paquets avec Reflector
+        7) Installation de Linux ATTENTION !
+        8) Fin de l'installation, utilisez chroot-install"""
         
         read -p "Entrez une selection : " choice
 
