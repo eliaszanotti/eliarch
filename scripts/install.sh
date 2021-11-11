@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source functions.sh 
+. functions.sh 
 
 clear
 loadkeys fr-pc
@@ -95,9 +95,6 @@ function main {
         6) Tri des paquets avec Reflector
         7) Installation de Linux ATTENTION !
         8) Fin de l'installation, utilisez chroot-install
-
-
-        
         """
         
         read -p "Entrez une selection : " choice
