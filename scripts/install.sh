@@ -98,6 +98,7 @@ function main {
         6) Tri des paquets avec Reflector
         7) Installation de Linux ATTENTION !
         8) Fin de l'installation, utilisez chroot-install
+        q) Exit
         """
         
         read -p "Entrez une selection : " choice
@@ -111,6 +112,7 @@ function main {
             6) tri_reflector;sleep 3;;
             7) install_pacstrap;sleep 3;;
             8) chroot_system;sleep 3;;
+            q) exit;
             *) echo "Choix non valide veuillez recommencer :";sleep 1;;
         esac 
         
