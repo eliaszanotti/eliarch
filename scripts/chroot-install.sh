@@ -54,11 +54,8 @@ function sudo_user {
     useradd -k /etc/skel -G wheel -m $user
     passwd $user 
     echo "Ajout de l'utilisateur dans le groupe wheel"
-    continue
     nano /etc/sudoers
     cd /home/$user
-    echo "Affichage des dossiers dans le dossier utilisateur :"
-    ls -l
 }
 
 function fin_install {
