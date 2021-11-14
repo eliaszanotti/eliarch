@@ -4,8 +4,8 @@ source functions.sh
 
 clear
 
-function chroot_system {
-    titre "Chroot du systeme et fuseau horraire"
+function fuseau_system {
+    titre "Fuseau horraire"
     ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
     hwclock --systohc
     nano /etc/locale.gen
@@ -42,7 +42,7 @@ function passwd_root {
 }
 
 function grub_efi_install {
-    titre "Grub efi"
+    titre "Installation de Grub efi"
     pacman -S grub efibootmgr
     echo "Installer grub ATTENTION!"
     continuer
@@ -60,18 +60,18 @@ function main {
     while [[ $break_loop == 0 ]]
         do titre "Menu principal pour l'installation du systeme"
         echo """
-        1) Chroot du systeme et fuseau horraire
+        1) Fuseau horraire
         2) Hostname du systeme
         3) Hosts du systeme
         4) Mot de passe root du systeme
-        5) Grub efi
+        5) Installation de Grub efi
         6) Fin de l'installation
         q) Exit
         """
         read -p "Entrez une selection : " choice
         case $choice in 
             q) exit;;
-            1) chroot_system;sleep 3;;
+            1) fuseau_system;sleep 3;;
             2) hostname_systeme;sleep 3;;
             3) hosts_systeme;sleep 3;; 
             4) passwd_root;sleep 3;; 
