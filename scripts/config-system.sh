@@ -67,10 +67,10 @@ function main {
         echo """
         1) Activation de networkmanager
         2) Installation des paquets
-        3) Installation de Yay
-        4) Installation de zsh
-        5) Configuration des applications
-        6) Configuration et installation de LAMP (YAY requis)
+        3) Installation de Yay (en utilisateur)
+        4) Installation de zsh (en utilisateur)
+        5) Configuration des applications (en utilisateur)
+        6) Configuration et installation de LAMP (en utilisateur, YAY requis)
         q) Exit
         """
         read -p "Entrez une selection : " choice
