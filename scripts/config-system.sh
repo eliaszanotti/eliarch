@@ -9,10 +9,9 @@ function activate_networkmanager {
 
 function install_applications {
     titre "Installation des paquets"
-    echo "xorg, plasma, sddm, spectacle, print-manager, kontrast, kcolorchooser, kate, elisa, dolphin, dolphin-plugins, ark, firefox, gparted, terminator, vlc, mixxx, inkscape, vscode, gwenview"
+    nano packages.txt
     continuer
-    pacman -Syy xorg plasma sddm spectacle print-manager kontrast kcolorchooser kate elisa dolphin dolphin-plugins ark firefox gparted terminator vlc mixxx inkscape vscode gwenview    
-
+    pacman -Syy - < packages.txt
 }
 
 function install_yay {
