@@ -16,14 +16,14 @@ function install_applications {
 
 function install_yay {
     titre "Installation de Yay"
-    pacman -Syy git fakeroot binutils make gcc
+    sudo pacman -Syy git fakeroot binutils make gcc
     echo "Installaton dans /opt"
     cd /opt 
     git clone https://aur.archlinux.org/yay-git.git
-    chown -R $USER:wheel ./yay-git
+    sudo chown -R $USER:wheel ./yay-git
     cd yay-git
-    echo "Executer 'makepkg -si' en utilisateur :"
-    su $USER
+    echo "Execution 'makepkg -si' en utilisateur"
+    makepkg -si
     echo "Syncronisation des paquets et test de yay"
     yay -Syy
 }
