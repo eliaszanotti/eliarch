@@ -83,6 +83,7 @@ function chroot_system {
     cp -r $PWD/functions.sh /mnt/bin
     cp -r $PWD/chroot-install.sh /mnt/bin
     cp -r $PWD/config-system.sh /mnt/bin
+    chmod +x /mnt/bin/chroot-install.sh
     arch-chroot /mnt
 }
 
