@@ -79,7 +79,7 @@ function install_pacstrap {
 }
 
 function chroot_system {
-    titre "Pour continuer utilisez ./chroot-install"
+    titre "Pour continuer utilisez ./chroot-install.sh"
     cp -r $PWD/functions.sh /mnt/bin
     cp -r $PWD/chroot-install.sh /mnt/bin
     cp -r $PWD/config-system.sh /mnt/bin
@@ -98,7 +98,7 @@ function main {
         5) Montage des partitions
         6) Tri des paquets avec Reflector
         7) Installation de Linux ATTENTION !
-        8) Fin de l'installation, utilisez chroot-install
+        8) Fin de l'installation, utilisez ./chroot-install.sh
         q) Exit
         """
         read -p "Entrez une selection : " choice
