@@ -116,8 +116,7 @@ function main {
             7) install_pacstrap;sleep 3;;
             8) chroot_system;sleep 3;;
             *) echo "Choix non valide veuillez recommencer :";sleep 1;;
-        esac 
-        
+        esac    
     done
 }
 

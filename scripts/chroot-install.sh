@@ -77,7 +77,6 @@ function main {
             6) fin_install;sleep 3;;
             *) echo "Choix non valide veuillez recommencer :";sleep 1;;
         esac 
-        
     done
 }
 
