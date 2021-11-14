@@ -1,7 +1,5 @@
 #!/bin/bash
-
 source functions.sh
-
 clear
 
 function activate_networkmanager {
@@ -12,23 +10,9 @@ function activate_networkmanager {
 function install_applications {
     titre "Installation des paquets"
     echo "xorg, plasma, sddm, spectacle, print-manager, kontrast, kcolorchooser, kate, elisa, dolphin, dolphin-plugins, ark, firefox, gparted, terminator, vlc, mixxx, inkscape, vscode, gwenview"
-    # continuer
+    continuer
     pacman -Syy xorg plasma sddm spectacle print-manager kontrast kcolorchooser kate elisa dolphin dolphin-plugins ark firefox gparted terminator vlc mixxx inkscape vscode gwenview    
 
-}
-
-function sudo_user {
-    titre "Creation d'un utilisateur sudo"
-    pacman -Syy sudo
-    read -p "Nom de l'utilisateur : " user
-    useradd -k /etc/skel -G wheel -m $user
-    passwd $user 
-    echo "Ajout de l'utilisateur dans le groupe wheel"
-    continue
-    nano /etc/sudoers
-    cd /home/$user
-    echo "Affichage des dossiers dans le dossier utilisateur :"
-    ls -l
 }
 
 function install_yay {
@@ -37,13 +21,11 @@ function install_yay {
     echo "Installaton dans /opt"
     cd /opt 
     git clone https://aur.archlinux.org/yay-git.git
-    read -p "Nom de l'utitilisateur a utiliser pour installer yay : " user 
-    chown -R $user:wheel ./yay-git
+    chown -R $USER:wheel ./yay-git
     cd yay-git
     echo "Executer 'makepkg -si' en utilisateur :"
-    su $user
+    su $USER
     echo "Syncronisation des paquets et test de yay"
-    continuer
     yay -Syy
 }
 
@@ -58,22 +40,20 @@ function install_zsh {
 function config_files {
     titre "Configuration des applications"
     pacman -Syy git
-    read -p "Nom de l'utitilisateur : " user
-    cd /home/$user/
+    cd /home/$USER/
     rm -rf eliarch
     git clone https://github.com/eliaszanotti/eliarch
-    cp -r /home/$user/eliarch/files/* /home/$user/.config/
+    cp -r /home/$USER/eliarch/files/* /home/$USER/.config/
 }
 
 function config_apache {
     titre "Configuration et installation de LAMP (YAY requis)"
     pacman -Syy apache php php-apache
     yay -Syy mysql git
-    read -p "Nom de l'utitilisateur : " user
-    cd /home/$user/
+    cd /home/$USER/
     git clone https://github.com/eliaszanotti/eliarch
-    cp -r /home/$user/eliarch/php.ini /etc/php/php.ini
-    cp -r /home/$user/eliarch/httpd.conf /etc/httpd/conf/httpd.conf
+    cp -r /home/$USER/eliarch/php.ini /etc/php/php.ini
+    cp -r /home/$USER/eliarch/httpd.conf /etc/httpd/conf/httpd.conf
     systemctl enable --now httpd
     systemctl enable --now mysqld
     echo "Configuration de mysql"
@@ -88,11 +68,10 @@ function main {
         echo """
         1) Activation de networkmanager
         2) Installation des paquets
-        3) Creation d'un utilisateur sudo
-        4) Installation de Yay
-        5) Installation de zsh
-        6) Configuration des applications
-        7) Configuration et installation de LAMP (YAY requis)
+        3) Installation de Yay
+        4) Installation de zsh
+        5) Configuration des applications
+        6) Configuration et installation de LAMP (YAY requis)
         q) Exit
         """
         read -p "Entrez une selection : " choice
@@ -100,11 +79,10 @@ function main {
             q) exit;;
             1) activate_networkmanager;sleep 3;;
             2) install_applications;sleep 3;;
-            3) sudo_user;sleep 3;; 
-            4) install_yay;sleep 3;; 
-            5) install_zsh;sleep 3;;
-            6) config_files;sleep 3;;
-            7) config_apache;sleep 3;;
+            3) install_yay;sleep 3;; 
+            4) install_zsh;sleep 3;;
+            5) config_files;sleep 3;;
+            6) config_apache;sleep 3;;
             *) echo "Choix non valide veuillez recommencer :";sleep 1;;
         esac     
     done
