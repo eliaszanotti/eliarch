@@ -20,7 +20,7 @@ function install_yay {
     echo "Installaton dans /opt"
     cd /opt 
     git clone https://aur.archlinux.org/yay-git.git
-    sudo chown -R $USER:wheel ./yay-git
+    sudo chown -R $USER:wheel /opt/yay-git
     cd yay-git
     echo "Execution 'makepkg -si' en utilisateur"
     makepkg -si
@@ -30,7 +30,7 @@ function install_yay {
 
 function install_zsh {
     titre "Installation de zsh"
-    pacman -Syy zsh
+    sudo pacman -Syy zsh
     zsh --version
     echo "Changement de shell par defaut pour zsh"
     chsh -s /bin/zsh
