@@ -1,7 +1,5 @@
 #!/bin/bash
-
 source functions.sh
-
 clear
 
 function fuseau_system {
@@ -9,7 +7,6 @@ function fuseau_system {
     ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
     hwclock --systohc
     nano /etc/locale.gen
-    continuer
     locale-gen
     rm -f /etc/locale.conf
     touch /etc/locale.conf
@@ -50,6 +47,20 @@ function grub_efi_install {
     grub-mkconfig -o /boot/grub/grub.cfg
 }
 
+function sudo_user {
+    titre "Creation d'un utilisateur sudo"
+    pacman -Syy sudo
+    read -p "Nom de l'utilisateur : " user
+    useradd -k /etc/skel -G wheel -m $user
+    passwd $user 
+    echo "Ajout de l'utilisateur dans le groupe wheel"
+    continue
+    nano /etc/sudoers
+    cd /home/$user
+    echo "Affichage des dossiers dans le dossier utilisateur :"
+    ls -l
+}
+
 function fin_install {
     titre "Merci d'avoir utilisé EliArch Installer"
     exit
@@ -65,7 +76,8 @@ function main {
         3) Hosts du systeme
         4) Mot de passe root du systeme
         5) Installation de Grub efi
-        6) Fin de l'installation
+        6) Creation d'un utilisateur sudo
+        7) Fin de l'installation
         q) Exit
         """
         read -p "Entrez une selection : " choice
@@ -76,7 +88,8 @@ function main {
             3) hosts_systeme;sleep 3;; 
             4) passwd_root;sleep 3;; 
             5) grub_efi_install;sleep 3;;
-            6) fin_install;sleep 3;;
+            6) sudo_user;sleep 3;;
+            7) fin_install;sleep 3;;
             *) echo "Choix non valide veuillez recommencer :";sleep 1;;
         esac 
     done
