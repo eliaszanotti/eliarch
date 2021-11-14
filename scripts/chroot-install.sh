@@ -59,16 +59,18 @@ function main {
     break_loop=0
     while [[ $break_loop == 0 ]]
         do titre "Menu principal pour l'installation du systeme"
-        echo "1) Chroot du systeme et fuseau horraire"
-        echo "2) Hostname du systeme"
-        echo "3) Hosts du systeme"
-        echo "4) Mot de passe root du systeme"
-        echo "5) Grub efi"
-        echo "6) Fin de l'installation"
-        
+        echo """
+        1) Chroot du systeme et fuseau horraire
+        2) Hostname du systeme
+        3) Hosts du systeme
+        4) Mot de passe root du systeme
+        5) Grub efi
+        6) Fin de l'installation
+        q) Exit
+        """
         read -p "Entrez une selection : " choice
-
         case $choice in 
+            q) exit;;
             1) chroot_system;sleep 3;;
             2) hostname_systeme;sleep 3;;
             3) hosts_systeme;sleep 3;; 

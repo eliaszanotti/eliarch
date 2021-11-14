@@ -85,17 +85,19 @@ function main {
     break_loop=0
     while [[ $break_loop == 0 ]]
         do titre "Menu principal pour la configuration du systeme"
-        echo "1) Activation de networkmanager"
-        echo "2) Installation des paquets"
-        echo "3) Creation d'un utilisateur sudo"
-        echo "4) Installation de Yay"
-        echo "5) Installation de zsh"
-        echo "6) Configuration des applications"
-        echo "7) Configuration et installation de LAMP (YAY requis)"
-        
+        echo """
+        1) Activation de networkmanager
+        2) Installation des paquets
+        3) Creation d'un utilisateur sudo
+        4) Installation de Yay
+        5) Installation de zsh
+        6) Configuration des applications
+        7) Configuration et installation de LAMP (YAY requis)
+        q) Exit
+        """
         read -p "Entrez une selection : " choice
-
         case $choice in 
+            q) exit;;
             1) activate_networkmanager;sleep 3;;
             2) install_applications;sleep 3;;
             3) sudo_user;sleep 3;; 

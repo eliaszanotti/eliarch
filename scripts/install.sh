@@ -79,8 +79,7 @@ function install_pacstrap {
 }
 
 function chroot_system {
-    #TODO
-    titre "Pour continuer utilisez chroot-install"
+    titre "Pour continuer utilisez ./chroot-install"
     cp -r $PWD/functions.sh /mnt/bin
     cp -r $PWD/chroot-install.sh /mnt/bin
     cp -r $PWD/config-system.sh /mnt/bin
@@ -102,9 +101,7 @@ function main {
         8) Fin de l'installation, utilisez chroot-install
         q) Exit
         """
-        
         read -p "Entrez une selection : " choice
-
         case $choice in 
             q) exit;;
             1) wifi;sleep 3;;
