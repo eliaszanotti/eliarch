@@ -15,7 +15,7 @@ function install_applications {
 }
 
 function install_yay {
-    titre "Installation de Yay"
+    titre "Installation de Yay (en utilisateur)"
     sudo pacman -Syy git fakeroot binutils make gcc
     echo "Installaton dans /opt"
     cd /opt 
@@ -29,7 +29,7 @@ function install_yay {
 }
 
 function install_zsh {
-    titre "Installation de zsh"
+    titre "Installation de zsh (en utilisateur)"
     sudo pacman -Syy zsh
     zsh --version
     echo "Changement de shell par defaut pour zsh"
@@ -37,8 +37,8 @@ function install_zsh {
 }
 
 function config_files {
-    titre "Configuration des applications"
-    pacman -Syy git
+    titre "Configuration des applications (en utilisateur)"
+    sudo pacman -Syy git
     cd /home/$USER/
     rm -rf eliarch
     git clone https://github.com/eliaszanotti/eliarch
@@ -46,17 +46,17 @@ function config_files {
 }
 
 function config_apache {
-    titre "Configuration et installation de LAMP (YAY requis)"
-    pacman -Syy apache php php-apache
+    titre "Configuration et installation de LAMP (en utilisateur, YAY requis)"
+    sudo pacman -Syy apache php php-apache
     yay -Syy mysql git
-    cd /home/$USER/
+    mkdir -p build_eliarch
+    cd /home/$USER/build_eliarch
     git clone https://github.com/eliaszanotti/eliarch
-    cp -r /home/$USER/eliarch/php.ini /etc/php/php.ini
-    cp -r /home/$USER/eliarch/httpd.conf /etc/httpd/conf/httpd.conf
+    cp -r /home/$USER/build_eliarch/eliarch/php.ini /etc/php/php.ini
+    cp -r /home/$USER/build_eliarch/eliarch/httpd.conf /etc/httpd/conf/httpd.conf
     systemctl enable --now httpd
     systemctl enable --now mysqld
     echo "Configuration de mysql"
-    continuer 
     mysql_secure_installation
 }
 
