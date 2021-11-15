@@ -39,18 +39,17 @@ function install_zsh {
 function config_apache {
     titre "Configuration et installation de LAMP (en utilisateur)"
     sudo pacman -Syy apache php php-apache git mariadb
-    sudo systemctl enable --now httpd
-    sudo systemctl enable --now mariadb
     cd ~
     sudo rm -rf build_eliarch
     mkdir -p build_eliarch
     cd ~/build_eliarch
     git clone https://github.com/eliaszanotti/eliarch
-    cd eliarch/files
     sudo cp -r ~/build_eliarch/eliarch/files/php.ini /etc/php/php.ini
     sudo cp -r ~/build_eliarch/eliarch/files/httpd.conf /etc/httpd/conf/httpd.conf
     echo "Configuration de mysql"
     mysql_secure_installation
+    sudo systemctl enable --now httpd
+    sudo systemctl enable --now mariadb
 }
 
 function config_files {
@@ -61,9 +60,7 @@ function config_files {
     mkdir -p build_eliarch
     cd ~/build_eliarch
     git clone https://github.com/eliaszanotti/eliarch
-    cd eliarch/config
     cp -r ~/eliarch/config/* ~/.config/
-    continuer
 }
 
 function main {
