@@ -47,8 +47,8 @@ function config_apache {
     cd ~/build_eliarch
     git clone https://github.com/eliaszanotti/eliarch
     cd eliarch/files
-    sudo cp -r /home/$USER/build_eliarch/eliarch/files/php.ini /etc/php/php.ini
-    sudo cp -r /home/$USER/build_eliarch/eliarch/files/httpd.conf /etc/httpd/conf/httpd.conf
+    sudo cp -r ~/build_eliarch/eliarch/files/php.ini /etc/php/php.ini
+    sudo cp -r ~/build_eliarch/eliarch/files/httpd.conf /etc/httpd/conf/httpd.conf
     echo "Configuration de mysql"
     mysql_secure_installation
 }
@@ -57,9 +57,12 @@ function config_files {
     titre "Configuration des applications (en utilisateur)"
     sudo pacman -Syy git
     cd ~
-    rm -rf eliarch
+    sudo rm -rf build_eliarch
+    mkdir -p build_eliarch
+    cd ~/build_eliarch
     git clone https://github.com/eliaszanotti/eliarch
-    cp -r /home/$USER/eliarch/files/* /home/$USER/.config/
+    cd eliarch/config
+    cp -r ~/eliarch/files/* ~/.config/
 }
 
 function main {
