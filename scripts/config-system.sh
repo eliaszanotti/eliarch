@@ -41,13 +41,13 @@ function config_apache {
     sudo pacman -Syy apache php php-apache git mariadb
     sudo systemctl enable --now httpd
     sudo systemctl enable --now mysqld
-    cd
+    cd ~
     sudo rm -rf build_eliarch
     mkdir -p build_eliarch
+    cd ~/build_eliarch
     git clone https://github.com/eliaszanotti/eliarch
     $files = ~/build_eliarch/eliarch/files
     cd $files
-    # continuer
     sudo cp -r $files/php.ini /etc/php/php.ini
     sudo cp -r $files/httpd.conf /etc/httpd/conf/httpd.conf
     echo "Configuration de mysql"
@@ -57,7 +57,7 @@ function config_apache {
 function config_files {
     titre "Configuration des applications (en utilisateur)"
     sudo pacman -Syy git
-    cd
+    cd ~
     rm -rf eliarch
     git clone https://github.com/eliaszanotti/eliarch
     cp -r /home/$USER/eliarch/files/* /home/$USER/.config/
