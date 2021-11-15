@@ -63,6 +63,7 @@ function config_files {
     git clone https://github.com/eliaszanotti/eliarch
     cd eliarch/config
     cp -r ~/eliarch/config/* ~/.config/
+    continuer
 }
 
 function main {
