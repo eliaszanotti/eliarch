@@ -49,7 +49,7 @@ function config_apache {
     ls -l 
     pwd 
     continuer
-    cd /eliarch/files
+    cd eliarch/files
     ls -l 
     pwd 
     continuer
