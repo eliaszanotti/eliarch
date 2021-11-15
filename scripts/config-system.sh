@@ -36,28 +36,30 @@ function install_zsh {
     chsh -s /bin/zsh
 }
 
-function config_files {
-    titre "Configuration des applications (en utilisateur)"
-    sudo pacman -Syy git
-    cd /home/$USER/
-    rm -rf eliarch
-    git clone https://github.com/eliaszanotti/eliarch
-    cp -r /home/$USER/eliarch/files/* /home/$USER/.config/
-}
-
 function config_apache {
-    titre "Configuration et installation de LAMP (en utilisateur, YAY requis)"
-    sudo pacman -Syy apache php php-apache
-    yay -Syy mysql git
+    titre "Configuration et installation de LAMP (en utilisateur)"
+    sudo pacman -Syy apache php php-apache git mariadb
+    sudo systemctl enable --now httpd
+    sudo systemctl enable --now mysqld
+    cd
+    sudo rm -rf build_eliarch
     mkdir -p build_eliarch
     cd /home/$USER/build_eliarch
     git clone https://github.com/eliaszanotti/eliarch
-    cp -r /home/$USER/build_eliarch/eliarch/php.ini /etc/php/php.ini
-    cp -r /home/$USER/build_eliarch/eliarch/httpd.conf /etc/httpd/conf/httpd.conf
-    systemctl enable --now httpd
-    systemctl enable --now mysqld
+    $files = /home/$USER/build_eliarch/eliarch/files
+    sudo cp -r $files/php.ini /etc/php/php.ini
+    sudo cp -r $files/httpd.conf /etc/httpd/conf/httpd.conf
     echo "Configuration de mysql"
     mysql_secure_installation
+}
+
+function config_files {
+    titre "Configuration des applications (en utilisateur)"
+    sudo pacman -Syy git
+    cd
+    rm -rf eliarch
+    git clone https://github.com/eliaszanotti/eliarch
+    cp -r /home/$USER/eliarch/files/* /home/$USER/.config/
 }
 
 function main {
@@ -69,8 +71,8 @@ function main {
         2) Installation des paquets
         3) Installation de Yay (en utilisateur)
         4) Installation de zsh (en utilisateur)
-        5) Configuration des applications (en utilisateur)
-        6) Configuration et installation de LAMP (en utilisateur, YAY requis)
+        5) Configuration et installation de LAMP (en utilisateur)
+        6) Configuration des applications (en utilisateur)
         q) Exit
         """
         read -p "Entrez une selection : " choice
@@ -80,8 +82,8 @@ function main {
             2) install_applications;sleep 3;;
             3) install_yay;sleep 3;; 
             4) install_zsh;sleep 3;;
-            5) config_files;sleep 3;;
-            6) config_apache;sleep 3;;
+            5) config_apache;sleep 3;;
+            6) config_files;sleep 3;;
             *) echo "Choix non valide veuillez recommencer :";sleep 1;;
         esac     
     done
