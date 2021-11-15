@@ -46,16 +46,11 @@ function config_apache {
     mkdir -p build_eliarch
     cd ~/build_eliarch
     git clone https://github.com/eliaszanotti/eliarch
-    ls -l 
-    pwd 
-    continuer
     cd eliarch/files
-    ls -l 
-    pwd 
+    # $files = /home/$USER/build_eliarch/eliarch/files
+    sudo cp -r /home/$USER/build_eliarch/eliarch/files/php.ini /etc/php/php.ini
+    sudo cp -r /home/$USER/build_eliarch/eliarch/files/httpd.conf /etc/httpd/conf/httpd.conf
     continuer
-    $files = ~/build_eliarch/eliarch/files
-    sudo cp -r $files/php.ini /etc/php/php.ini
-    sudo cp -r $files/httpd.conf /etc/httpd/conf/httpd.conf
     echo "Configuration de mysql"
     mysql_secure_installation
 }
