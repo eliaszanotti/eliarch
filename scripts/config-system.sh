@@ -44,9 +44,10 @@ function config_apache {
     cd
     sudo rm -rf build_eliarch
     mkdir -p build_eliarch
-    cd /home/$USER/build_eliarch
     git clone https://github.com/eliaszanotti/eliarch
-    $files = /home/$USER/build_eliarch/eliarch/files
+    $files = ~/build_eliarch/eliarch/files
+    cd $files
+    # continuer
     sudo cp -r $files/php.ini /etc/php/php.ini
     sudo cp -r $files/httpd.conf /etc/httpd/conf/httpd.conf
     echo "Configuration de mysql"
