@@ -46,7 +46,13 @@ function config_apache {
     mkdir -p build_eliarch
     cd ~/build_eliarch
     git clone https://github.com/eliaszanotti/eliarch
+    ls -l 
+    pwd 
+    continuer
     cd /eliarch/files
+    ls -l 
+    pwd 
+    continuer
     $files = ~/build_eliarch/eliarch/files
     sudo cp -r $files/php.ini /etc/php/php.ini
     sudo cp -r $files/httpd.conf /etc/httpd/conf/httpd.conf
