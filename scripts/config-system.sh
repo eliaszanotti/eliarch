@@ -42,18 +42,12 @@ function config_apache {
     sudo systemctl enable --now httpd
     sudo systemctl enable --now mysqld
     cd ~
-    ls
-    continuer
     sudo rm -rf build_eliarch
     mkdir -p build_eliarch
     cd ~/build_eliarch
-    ls
-    continuer
     git clone https://github.com/eliaszanotti/eliarch
+    cd /eliarch/files
     $files = ~/build_eliarch/eliarch/files
-    cd $files
-    ls
-    continuer
     sudo cp -r $files/php.ini /etc/php/php.ini
     sudo cp -r $files/httpd.conf /etc/httpd/conf/httpd.conf
     echo "Configuration de mysql"
