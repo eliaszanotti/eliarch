@@ -40,7 +40,7 @@ function config_apache {
     titre "Configuration et installation de LAMP (en utilisateur)"
     sudo pacman -Syy apache php php-apache git mariadb
     sudo systemctl enable --now httpd
-    sudo systemctl enable --now mysqld
+    sudo systemctl enable --now mariadb
     cd ~
     sudo rm -rf build_eliarch
     mkdir -p build_eliarch
