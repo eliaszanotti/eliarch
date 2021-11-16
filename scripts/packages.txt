@@ -7,19 +7,31 @@ print-manager
 gparted
 terminator
 sddm
+nano
+network-manager-applet
+networkmanager
+pulseaudio-alsa
 
 # kde applications
 kontrast
 kcolorchooser
 kate
 elisa
+discover
 dolphin
 dolphin-plugins
 ark
 spectacle
+kmenuedit
+kscreen
+kscreenlocker
+ksystemstats
+kwin
+systemsettings
 
 # autres
 firefox
+firefox-developer-edition
 vlc
 mixxx
 inkscape
