@@ -52,6 +52,11 @@ function config_apache {
     sudo systemctl enable --now mariadb
 }
 
+# function rename_xdg {
+#     titre "Renommage des dossiers (en utilisateur)"
+#     sudo xdg-user-dirs-update --force --set
+# }
+
 function config_files {
     titre "Configuration des applications (en utilisateur)"
     sudo pacman -Syy git
@@ -60,7 +65,8 @@ function config_files {
     mkdir -p build_eliarch
     cd ~/build_eliarch
     git clone https://github.com/eliaszanotti/eliarch
-    cp -r ~/eliarch/config/* ~/.config/
+    cp -r ~/build_eliarch/config/* ~/.config/
+    cp -r ~/build_eliarch/files/.zshrc ~/
 }
 
 function main {
