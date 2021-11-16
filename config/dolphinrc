@@ -1,0 +1,48 @@
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAwAAAAAAAAC4AAADwfwCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAAA/////wAAAAoBAAAD+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAAAuAAADwQAAAF0BAAADAAAAAQAAAAAAAAAA/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAAAAAAD/////AAAACgEAAAMAAAADAAAHgAAAAL78AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawAAAAAAAAAHgAAAAxYBAAADAAAGxwAAA8EAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+eDP-1 Window-Maximized 1920x1080=true
+
+[CompactMode]
+FontWeight=50
+
+[DetailsMode]
+FontWeight=50
+
+[General]
+ShowFullPath=true
+ShowSelectionToggle=false
+ShowSpaceInfo=false
+ShowStatusBar=false
+ShowZoomSlider=false
+SplitView=true
+Version=201
+ViewPropsTimestamp=2021,8,28,12,10,0.418
+
+[IconsMode]
+FontWeight=50
+IconSize=64
+MaximumTextLines=1
+
+[KPropertiesDialog]
+eDP-1 Height 1920x1080=454
+eDP-1 Width 1920x1080=405
+
+[MainWindow]
+MenuBar=Disabled
+RestorePositionForNextInstance=false
+State=AAAA/wAAAAD9AAAAAwAAAAAAAAC4AAADwfwCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAAA/////wAAAAoBAAAD+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAAAuAAADwQAAAF0BAAADAAAAAQAAAAAAAAAA/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAAAAAAD/////AAAACgEAAAMAAAADAAAHgAAAAL78AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawAAAAAAAAAHgAAAAxYBAAADAAAGxwAAA8EAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+ToolBarsMovable=Disabled
+eDP-1 Window-Maximized 1920x1080=true
+eDP-1 XPosition 1920x1080=770
+eDP-1 YPosition 1920x1080=241
+
+[Open-with settings]
+CompletionMode=1
+History=kate
+
+[PreviewSettings]
+Plugins=appimagethumbnail,comicbookthumbnail,kraorathumbnail,opendocumentthumbnail,directorythumbnail,windowsexethumbnail,audiothumbnail,cursorthumbnail,fontthumbnail,djvuthumbnail,imagethumbnail,exrthumbnail,jpegthumbnail,windowsimagethumbnail,svgthumbnail,ebookthumbnail
+
+[SettingsDialog]
+eDP-1 Height 1920x1080=440
+eDP-1 Width 1920x1080=870
