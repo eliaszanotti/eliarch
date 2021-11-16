@@ -65,8 +65,8 @@ function config_files {
     mkdir -p build_eliarch
     cd ~/build_eliarch
     git clone https://github.com/eliaszanotti/eliarch
-    cp -r ~/build_eliarch/config/* ~/.config/
-    cp -r ~/build_eliarch/files/.zshrc ~/
+    cp -r ~/build_eliarch/eliarch/config/* ~/.config/
+    cp -r ~/build_eliarch/eliarch/files/.zshrc ~/
 }
 
 function main {
