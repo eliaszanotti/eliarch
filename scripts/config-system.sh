@@ -50,6 +50,8 @@ function config_apache {
     mysql_secure_installation
     sudo systemctl enable --now httpd
     sudo systemctl enable --now mariadb
+    cd ~
+    sudo rm -rf build_eliarch
 }
 
 # function rename_xdg {
