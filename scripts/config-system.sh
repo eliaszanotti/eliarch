@@ -68,6 +68,8 @@ function config_files {
     cp -r ~/build_eliarch/eliarch/config/* ~/.config/
     cp -r ~/build_eliarch/eliarch/files/.zshrc ~/
     cp -r ~/build_eliarch/eliarch/files/schema.kksrc ~/
+    cd ~
+    sudo rm -rf build_eliarch 
 }
 
 function main {
