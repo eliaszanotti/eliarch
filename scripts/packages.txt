@@ -1,8 +1,14 @@
+# plasma et xorg
 xorg
 plasma
-sddm
-spectacle
+
+# utils
 print-manager
+gparted
+terminator
+sddm
+
+# kde applications
 kontrast
 kcolorchooser
 kate
@@ -10,11 +16,14 @@ elisa
 dolphin
 dolphin-plugins
 ark
+spectacle
+
+# autres
 firefox
-gparted
-terminator
 vlc
 mixxx
 inkscape
 vscode
 gwenview
+
+
