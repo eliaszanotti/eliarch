@@ -2,11 +2,6 @@
 source functions.sh
 clear
 
-function activate_networkmanager {
-    titre "Activation de networkmanager"
-    systemctl enable --now NetworkManager
-}
-
 function install_applications {
     titre "Installation des paquets"
     nano packages.txt
@@ -47,17 +42,13 @@ function config_apache {
     sudo cp -r ~/build_eliarch/eliarch/files/php.ini /etc/php/php.ini
     sudo cp -r ~/build_eliarch/eliarch/files/httpd.conf /etc/httpd/conf/httpd.conf
     echo "Configuration de mysql"
+    /usr/bin/mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
     mysql_secure_installation
     sudo systemctl enable --now httpd
     sudo systemctl enable --now mariadb
     cd ~
     sudo rm -rf build_eliarch
 }
-
-# function rename_xdg {
-#     titre "Renommage des dossiers (en utilisateur)"
-#     sudo xdg-user-dirs-update --force --set
-# }
 
 function config_files {
     titre "Configuration des applications (en utilisateur)"

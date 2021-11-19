@@ -58,6 +58,11 @@ function sudo_user {
     cd /home/$user
 }
 
+function activate_networkmanager {
+    titre "Activation de networkmanager"
+    systemctl enable --now NetworkManager
+}
+
 function main {
     break_loop=0
     while [[ $break_loop == 0 ]]
@@ -69,6 +74,7 @@ function main {
         4) Mot de passe root du systeme
         5) Installation de Grub efi
         6) Creation d'un utilisateur sudo
+        7) Activation de networkmanager
         q) Exit
         """
         read -p "Entrez une selection : " choice
@@ -80,6 +86,7 @@ function main {
             4) passwd_root;sleep 3;; 
             5) grub_efi_install;sleep 3;;
             6) sudo_user;sleep 3;;
+            7) activate_networkmanager;sleep 3;;
             *) echo "Choix non valide veuillez recommencer :";sleep 1;;
         esac 
     done
