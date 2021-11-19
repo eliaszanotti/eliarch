@@ -10,6 +10,7 @@ sddm
 nano
 network-manager-applet
 networkmanager
+ntfs-3g
 pulseaudio-alsa
 
 # kde applications
@@ -37,5 +38,6 @@ mixxx
 inkscape
 vscode
 gwenview
+
 
 
