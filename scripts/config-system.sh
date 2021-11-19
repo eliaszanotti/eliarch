@@ -4,9 +4,9 @@ clear
 
 function install_applications {
     titre "Installation des paquets"
-    nano packages.txt
+    sudo nano packages.txt
     continuer
-    pacman -Syy - < packages.txt
+    sudo pacman -Syy - < packages
 }
 
 function install_yay {
@@ -70,12 +70,11 @@ function main {
     while [[ $break_loop == 0 ]]
         do titre "Menu principal pour la configuration du systeme"
         echo """
-        1) Activation de networkmanager
-        2) Installation des paquets
-        3) Installation de Yay (en utilisateur)
-        4) Installation de zsh (en utilisateur)
-        5) Configuration et installation de LAMP (en utilisateur)
-        6) Configuration des applications (en utilisateur)
+        1) Installation des paquets (en utilisateur)
+        2) Installation de Yay (en utilisateur)
+        3) Installation de zsh (en utilisateur)
+        4) Configuration et installation de LAMP (en utilisateur)
+        5) Configuration des applications (en utilisateur)
         q) Exit
         """
         read -p "Entrez une selection : " choice
