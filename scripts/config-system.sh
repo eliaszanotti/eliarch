@@ -4,9 +4,9 @@ clear
 
 function install_applications {
     titre "Installation des paquets"
-    sudo nano packages.txt
+    sudo nano packages.sh
     continuer
-    sudo pacman -Syy - < packages
+    sudo pacman -Syy - < packages.sh
 }
 
 function install_yay {
@@ -43,7 +43,7 @@ function config_apache {
     sudo cp -r ~/build_eliarch/eliarch/files/httpd.conf /etc/httpd/conf/httpd.conf
     echo "Configuration de mysql"
     /usr/bin/mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-    mysql_secure_installation
+    sudo mysql_secure_installation
     sudo systemctl enable --now httpd
     sudo systemctl enable --now mariadb
     cd ~
@@ -80,12 +80,11 @@ function main {
         read -p "Entrez une selection : " choice
         case $choice in 
             q) exit;;
-            1) activate_networkmanager;sleep 3;;
-            2) install_applications;sleep 3;;
-            3) install_yay;sleep 3;; 
-            4) install_zsh;sleep 3;;
-            5) config_apache;sleep 3;;
-            6) config_files;sleep 3;;
+            1) install_applications;sleep 3;;
+            2) install_yay;sleep 3;; 
+            3) install_zsh;sleep 3;;
+            4) config_apache;sleep 3;;
+            5) config_files;sleep 3;;
             *) echo "Choix non valide veuillez recommencer :";sleep 1;;
         esac     
     done

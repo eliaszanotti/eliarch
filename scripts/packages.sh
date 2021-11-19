@@ -1,8 +1,6 @@
-# plasma et xorg
 xorg
 plasma
 
-# utils
 print-manager
 gparted
 terminator
@@ -13,7 +11,6 @@ networkmanager
 ntfs-3g
 pulseaudio-alsa
 
-# kde applications
 kontrast
 kcolorchooser
 kate
@@ -23,14 +20,7 @@ dolphin
 dolphin-plugins
 ark
 spectacle
-kmenuedit
-kscreen
-kscreenlocker
-ksystemstats
-kwin
-systemsettings
 
-# autres
 firefox
 firefox-developer-edition
 vlc
