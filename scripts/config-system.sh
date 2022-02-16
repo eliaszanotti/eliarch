@@ -4,9 +4,9 @@ clear
 
 function install_applications {
     titre "Installation des paquets"
-    sudo nano packages.sh
+    sudo nano ~/packages.sh
     continuer
-    sudo pacman -Syy - < packages.sh
+    sudo pacman -Syy - < ~/packages.sh
 }
 
 function install_yay {
@@ -14,7 +14,7 @@ function install_yay {
     sudo pacman -Syy git fakeroot binutils make gcc
     echo "Installaton dans /opt"
     cd /opt 
-    git clone https://aur.archlinux.org/yay-git.git
+    sudo git clone https://aur.archlinux.org/yay-git.git
     sudo chown -R $USER:wheel /opt/yay-git
     cd yay-git
     echo "Execution 'makepkg -si' en utilisateur"
