@@ -43,7 +43,7 @@ function config_apache {
     sudo cp -r ~/build_eliarch/eliarch/files/httpd.conf /etc/httpd/conf/httpd.conf
     echo "Configuration de mysql"
     sudo /usr/bin/mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-    mysql_secure_installation
+    sudo mysql_secure_installation
     sudo systemctl enable --now httpd
     sudo systemctl enable --now mariadb
     cd ~
