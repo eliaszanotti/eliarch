@@ -36,13 +36,13 @@ function config_apache {
     sudo pacman -Syy apache php php-apache git mariadb
     cd ~
     sudo rm -rf build_eliarch
-    mkdir -p build_eliarch
+    sudo mkdir -p build_eliarch
     cd ~/build_eliarch
-    git clone https://github.com/eliaszanotti/eliarch
+    sudo git clone https://github.com/eliaszanotti/eliarch
     sudo cp -r ~/build_eliarch/eliarch/files/php.ini /etc/php/php.ini
     sudo cp -r ~/build_eliarch/eliarch/files/httpd.conf /etc/httpd/conf/httpd.conf
     echo "Configuration de mysql"
-    /usr/bin/mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+    sudo /usr/bin/mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
     mysql_secure_installation
     sudo systemctl enable --now httpd
     sudo systemctl enable --now mariadb
